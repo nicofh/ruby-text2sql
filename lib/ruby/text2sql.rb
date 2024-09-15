@@ -38,14 +38,14 @@ module Ruby
 
       def generate_sql_query(user_request, schema)
         full_prompt = "Ruby Schema:\n#{schema}\n\nUser Request: #{user_request}\n\nGenerate only the SQL query to answer the request. Do not include any explanation or additional text. If the request doesn't make sense just return 'SELECT '#{user_request}';'."
-        
+
         response = client.chat(
           parameters: {
             model: "gpt-3.5-turbo",
             messages: [{ role: "system", content: "You are an expert SQL generator." },
-              { role: "user", content: full_prompt }]
-            }
-          )
+                       { role: "user", content: full_prompt }]
+          }
+        )
 
         response["choices"][0]["message"]["content"].strip
       end
