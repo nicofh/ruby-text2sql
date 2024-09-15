@@ -1,0 +1,75 @@
+PATH
+  remote: .
+  specs:
+    ruby-text2sql (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.2)
+    base64 (0.2.0)
+    diff-lcs (1.5.1)
+    event_stream_parser (1.0.0)
+    faraday (2.8.1)
+      base64
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.0.2)
+    json (2.7.2)
+    multipart-post (2.4.1)
+    parallel (1.24.0)
+    parser (3.3.5.0)
+      ast (~> 2.4.1)
+      racc
+    racc (1.8.1)
+    rainbow (3.1.1)
+    rake (13.2.1)
+    regexp_parser (2.9.2)
+    rexml (3.3.7)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.1)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    rubocop (1.50.2)
+      json (~> 2.3)
+      parallel (~> 1.10)
+      parser (>= 3.2.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    ruby-openai (7.1.0)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
+    ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
+    unicode-display_width (2.6.0)
+
+PLATFORMS
+  x86_64-darwin-18
+
+DEPENDENCIES
+  rake (~> 13.0)
+  rspec (~> 3.0)
+  rubocop (~> 1.21)
+  ruby-openai (~> 7.1)
+  ruby-text2sql!
+
+BUNDLED WITH
+   2.4.22
