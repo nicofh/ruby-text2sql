@@ -9,7 +9,9 @@ Gem::Specification.new do |spec|
   spec.email = ["nicofh93@gmail.com"]
 
   spec.summary = "A Ruby gem to convert natural language to SQL queries using LLMs."
-  spec.description = "Text2SQL is a gem designed to generate SQL queries from natural language inputs. It leverages machine learning models to interpret schema files and user inputs, generating SQL queries that can be executed and returning results in a human-readable format."
+  spec.description = "Text2SQL is a gem designed to generate SQL queries from natural language inputs.
+                      It leverages machine learning models to interpret schema files and user inputs,
+                      generating SQL queries that can be executed and returning results in a human-readable format."
   spec.homepage = "https://github.com/nicofh/ruby-text2sql"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
@@ -37,4 +39,5 @@ Gem::Specification.new do |spec|
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

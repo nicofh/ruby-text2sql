@@ -33,11 +33,15 @@ module Ruby
       private
 
       def client
-        @client ||= OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
+        @client ||= OpenAI::Client.new(access_token: ENV.fetch("OPENAI_API_KEY", nil))
       end
 
       def generate_sql_query(user_request, schema)
-        full_prompt = "Ruby Schema:\n#{schema}\n\nUser Request: #{user_request}\n\nGenerate only the SQL query to answer the request. Do not include any explanation or additional text. If the request doesn't make sense just return 'SELECT '#{user_request}';'."
+        full_prompt = "Ruby Schema:\n#{schema}\n\n
+                      User Request: #{user_request}\n\n
+                      Generate only the SQL query to answer the request.
+                      Do not include any explanation or additional text.
+                      If the request doesn't make sense just return 'SELECT '#{user_request}';'."
 
         response = client.chat(
           parameters: {
@@ -51,7 +55,9 @@ module Ruby
       end
 
       def generate_response(user_request, query_result)
-        result_prompt = "User Request: #{user_request}\nSQL Query Result: #{query_result.inspect}\n\nAnswer the user's request in natural language. Answer in the same language as the question"
+        result_prompt = "User Request: #{user_request}\n
+                         SQL Query Result: #{query_result.inspect}\n\n
+                         Answer the user's request in natural language. Answer in the same language as the question"
 
         response = client.chat(
           parameters: {
