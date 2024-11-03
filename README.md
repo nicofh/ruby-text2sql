@@ -15,20 +15,18 @@ Using these, Text2SQL generates SQL queries, executes them, and returns results 
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add ruby-text2sq
+    $ bundle add ruby-text2sql
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install ruby-text2sq
+    $ gem install ruby-text2sql
 
 ## Usage
 
 - Set your `OPENAI_API_KEY` as an environment variable in `.env`.
 
-- Use `Text2sql.call` method with a plain-text query. Here’s an example:
+- Use `Ruby::Text2sql.call` method with a plain-text query. Here’s an example:
 ```
-require 'text2sql'
-
 response = Ruby::Text2sql.call("List all users who registered in the last 30 days")
 puts "SQL Query: #{response[:sql_query]}"                    # Outputs the generated SQL query
 puts "Query Result: #{response[:query_result]}"              # Outputs the result of the SQL query
