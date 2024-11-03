@@ -1,8 +1,15 @@
 # Ruby::Text2sql
 
-Text2SQL is a gem designed to generate SQL queries from natural language inputs.
-It leverages machine learning models to interpret schema files and user inputs,
-generating SQL queries that can be executed and returning results in a human-readable format.
+**Chat with your Database!**
+
+How It Works?
+
+Text2SQL takes:
+- **Your natural language Query** (in any language).
+- **Your OpenAI API Key** to process the query.
+- **Your Database Schema** to understand table structures.
+
+Using these, Text2SQL generates SQL queries, executes them, and returns results in a human-readable format—simplifying data access for both developers and non-developers.
 
 ## Installation
 
@@ -16,17 +23,16 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-After installing the gem, you need to configure your OpenAI API key to enable the text-to-SQL generation.
-Set the `OPENAI_API_KEY` as an environment variable in `.env`.
+- Set your `OPENAI_API_KEY` as an environment variable in `.env`.
 
-To generate SQL queries based on user requests, use the `Text2sql.call` method with a plain-text query. Here’s an example:
+- Use `Text2sql.call` method with a plain-text query. Here’s an example:
 ```
-    require 'text2sql'
+require 'text2sql'
 
-    response = Ruby::Text2sql.call("List all users who registered in the last 30 days")
-    puts "SQL Query: #{response[:sql_query]}"                    # Outputs the generated SQL query
-    puts "Query Result: #{response[:query_result]}"              # Outputs the result of the SQL query
-    puts "Response: #{response[:natural_language_response]}"     # Outputs a human-readable response
+response = Ruby::Text2sql.call("List all users who registered in the last 30 days")
+puts "SQL Query: #{response[:sql_query]}"                    # Outputs the generated SQL query
+puts "Query Result: #{response[:query_result]}"              # Outputs the result of the SQL query
+puts "Response: #{response[:natural_language_response]}"     # Outputs a human-readable response
 ```
 
 ## Development
