@@ -1,6 +1,7 @@
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7.1
   NewCops: enable
+  SuggestExtensions: false
 
 Style/StringLiterals:
   Enabled: true
@@ -29,6 +30,10 @@ RSpec/ExampleLength:
   Enabled: false
 
 RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+# Disable problematic cops that are causing errors
+Capybara/RSpec/PredicateMatcher:
   Enabled: false
 
 require:

@@ -2,6 +2,6 @@
 
 module Ruby
   module Text2sql
-    VERSION = "1.0.0"
+    VERSION = "1.0.1"
   end
 end

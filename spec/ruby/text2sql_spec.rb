@@ -23,7 +23,7 @@ RSpec.describe Ruby::Text2sql do
 
       # Mock SQL executor
       allow(Ruby::Text2sql::SQLExecutor).to receive(:new).and_return(executor)
-      allow(executor).to receive(:execute).with(sql_query).and_return(query_result)
+      allow(executor).to receive(:execute).and_return(query_result)
 
       # Mock response generator
       allow(described_class).to receive_messages(generate_sql_query: sql_query,

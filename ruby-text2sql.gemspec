@@ -4,7 +4,7 @@ require_relative "lib/ruby/text2sql/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-text2sql"
-  spec.version = Ruby::Text2sql::VERSION
+  spec.version = "1.0.1"
   spec.authors = ["Nicolas Fabre"]
   spec.email = ["nicofh93@gmail.com"]
 
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                       generating SQL queries that can be executed and returning results in a human-readable format."
   spec.homepage = "https://github.com/nicofh/ruby-text2sql"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 2.7.1"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
