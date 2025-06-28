@@ -25,13 +25,38 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 - Set your `OPENAI_API_KEY` as an environment variable in `.env`.
 
-- Use `Ruby::Text2sql.call` method with a plain-text query. Here’s an example:
+- Use `Ruby::Text2sql.call` method with a plain-text query. Here's an example:
 ```
 response = Ruby::Text2sql.call("List all users who registered in the last 30 days")
 puts "SQL Query: #{response[:sql_query]}"                    # Outputs the generated SQL query
 puts "Query Result: #{response[:query_result]}"              # Outputs the result of the SQL query
 puts "Response: #{response[:natural_language_response]}"     # Outputs a human-readable response
 ```
+
+## Configuration: Allowed SQL Actions
+
+After installing the gem, you can generate an initializer to control which SQL actions are permitted by running:
+
+```sh
+rails generate ruby_text2sql:install
+```
+
+This will create `config/initializers/ruby_text2sql.rb` with content like:
+
+```ruby
+Ruby::Text2sql.configure do |config|
+  # Allow only SELECT queries by default (safest)
+  config.allowed_actions = [:select]
+
+  # Example: Allow SELECT, INSERT, and UPDATE queries
+  # config.allowed_actions = [:select, :insert, :update]
+
+  # Example: To allow DELETE queries (use with caution)
+  # config.allowed_actions = [:select, :insert, :update, :delete]
+end
+```
+
+**Note:** Only the actions listed in `allowed_actions` (as symbols) will be permitted for execution. This helps protect your database from dangerous or unwanted queries.
 
 ## Development
 

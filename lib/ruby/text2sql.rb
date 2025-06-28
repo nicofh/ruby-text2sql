@@ -9,6 +9,22 @@ module Ruby
   module Text2sql
     class Error < StandardError; end
 
+    class Configuration
+      attr_accessor :allowed_actions
+
+      def initialize
+        @allowed_actions = [:select]
+      end
+    end
+
+    def self.configuration
+      @configuration ||= Configuration.new
+    end
+
+    def self.configure
+      yield(configuration)
+    end
+
     class << self
       def call(user_request)
         # Step 1: Parse the schema automatically
@@ -17,8 +33,9 @@ module Ruby
         # Step 2: Generate SQL query using OpenAI
         sql_query = generate_sql_query(user_request, schema)
 
-        # Step 3: Execute the generated SQL query using SQLExecutor
-        query_result = SQLExecutor.new.execute(sql_query)
+        # Step 3: Execute the generated SQL query using SQLExecutor, using configured allowed_actions
+        query_result = SQLExecutor.new(allowed_actions: Ruby::Text2sql.configuration.allowed_actions,
+                                       sql_query: sql_query).execute
 
         # Step 4: Generate a natural language response from the query result
         natural_language_response = generate_response(user_request, query_result)
