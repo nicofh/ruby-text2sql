@@ -4,7 +4,7 @@ require_relative "lib/ruby/text2sql/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-text2sql"
-  spec.version = "1.0.1"
+  spec.version = "1.1.0"
   spec.authors = ["Nicolas Fabre"]
   spec.email = ["nicofh93@gmail.com"]
 
